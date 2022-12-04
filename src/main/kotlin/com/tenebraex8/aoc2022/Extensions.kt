@@ -45,7 +45,8 @@ fun <A,B,C,D> Pair<A,B>.mapTo(mapper: (Pair<A,B>)->Pair<C,D>): Pair<C,D> = mappe
 fun <A, B> Pair<A, A>.mapping(mapper: (A)->B): Pair<B, B> = Pair(mapper.invoke(this.first), mapper.invoke(this.second))
 fun <A,B,C,D,E,F> Triple<A,B,C>.mapTo(mapper: (Triple<A,B,C>)->Triple<D,E,F>): Triple<D,E,F> = mapper.invoke(this)
 fun Pair<Int, Int>.toRange() = this.first..this.second
-
+fun IntRange.encloses(other: IntRange) = (this.first <= other.first) and (this.last >= other.last)
+fun IntRange.overlaps(other: IntRange) = (this.first in other) or (this.last in other)
 fun IntStream.collectToString() = this.collect(::StringBuilder, StringBuilder::appendCodePoint, StringBuilder::append).toString()
 
 

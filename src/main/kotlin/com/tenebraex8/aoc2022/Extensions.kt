@@ -134,6 +134,7 @@ fun Index2D.incX(value: Int = 1) = Pair(this.first, this.second + value)
 fun Index2D.incY(value: Int = 1) = Pair(this.first + value, this.second)
 
 //Stack
+typealias Stack<T> = MutableList<T>
 fun <T> MutableList<T>.push(item: T) = add(item)
 fun <T> MutableList<T>.pop() = if(isNotEmpty()) removeLast() else null
 fun <T> MutableList<T>.peek() = lastOrNull()

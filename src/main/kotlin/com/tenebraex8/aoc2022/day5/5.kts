@@ -42,4 +42,4 @@ for((count, source, target) in cmds)  {
 }
 
 //Get msg
-stacks2.map { it.peek() }.joinToString("").firstSolution()
+stacks2.map { it.peek() }.joinToString("").secondSolution()

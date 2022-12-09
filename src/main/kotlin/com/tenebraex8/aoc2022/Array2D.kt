@@ -13,6 +13,15 @@ data class ArrayIndex(val row: Int, val col: Int){
     fun decRow(value: Int = 1) = ArrayIndex(row - value, col)
     fun dec(value: Int = 1)    = ArrayIndex(row - value, col - value)
 
+    fun stepTowards(other:ArrayIndex):ArrayIndex{
+        var result = this.clone()
+        if(other.row > this.row) result = result.incRow()
+        else if(other.row < this.row) result = result.incRow(-1)
+        if(other.col > this.col) result = result.incCol()
+        else if(other.col < this.col) result = result.incCol(-1)
+        return result
+    }
+
     fun adjacent() = listOf(
         this.dec(), this.decRow(), this.decRow().incCol(),
         this.decCol(),             this.incCol(),

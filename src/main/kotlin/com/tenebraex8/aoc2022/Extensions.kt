@@ -65,6 +65,11 @@ fun <T> Array<T>.enumerate(enumerator: (Int, T) -> Unit){
     for(idx in this.indices) enumerator(idx, this[idx])
 }
 
+fun <T> Array<T>.leftshift(shiftIn:T){
+    for(i in 0 until this.size-1) this[i] = this[i+1]
+    this[this.size-1] = shiftIn
+}
+
 fun <T> List<T>.allElementsEquals(other: List<T>): Boolean{
     if(this.size != other.size) return false
     for(idx in this.indices){
